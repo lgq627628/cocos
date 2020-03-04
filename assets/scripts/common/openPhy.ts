@@ -12,7 +12,7 @@ export default class openPhy extends cc.Component {
       // 只能在 onload 这个阶段打开物理引擎
       cc.director.getPhysicsManager().enabled = true
       cc.director.getPhysicsManager().gravity = this.gravity
-
+      console.log('打开了物理引擎')
       if (this.isDebug) {
         let DrawBits: any = cc.PhysicsManager.DrawBits;
         cc.director.getPhysicsManager().debugDrawFlags = DrawBits.e_aabbBit |

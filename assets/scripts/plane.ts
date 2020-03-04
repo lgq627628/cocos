@@ -20,6 +20,7 @@ export default class NewClass extends cc.Component {
     zidanPool: cc.NodePool = null
     initCoinCount: number = 16
     initZidanCount: number = 16
+    defaultZidanNum: number = 2
 
     onLoad () {
       this.createCoinPool()
@@ -33,25 +34,33 @@ export default class NewClass extends cc.Component {
       let pos = e.getLocation()
       pos = this.node.convertToNodeSpaceAR(pos)
       this.aircraft.position = pos
-      this.schedule(this.launchZidan, .2);
+      this.schedule(this.launchZidan, .1);
+      // this.schedule(this.changeZidanNum, 2);
+    }
+
+    changeZidanNum() {
+      this.defaultZidanNum = this.randomNum(1, 6)
     }
 
     launchZidan() {
-      let zidan = null;
-      if (this.zidanPool.size() > 0) {
-          zidan = this.zidanPool.get()
-      } else {
-          zidan = cc.instantiate(this.zidanPrefab)
+      let w = this.zidanPrefab.data.width
+      let gap = w - 20
+      let offset = gap * (this.defaultZidanNum - 1) / 2
+      for(let i = 0; i < this.defaultZidanNum; i++) {
+        let zidan = null;
+        if (this.zidanPool.size() > 0) {
+            zidan = this.zidanPool.get()
+        } else {
+            zidan = cc.instantiate(this.zidanPrefab)
+            // this.zidanPool.put(zidan)
+        }
+        let pos = this.launchPoint.convertToWorldSpaceAR(cc.v2(0, 0))
+        pos = this.node.convertToNodeSpaceAR(pos)
+        pos.x += gap * i
+        pos.x -= offset
+        zidan.position = pos
+        zidan.parent = this.node
       }
-      let pos = this.launchPoint.convertToWorldSpaceAR(cc.v2(0, 0))
-      pos = this.node.convertToNodeSpaceAR(pos)
-      zidan.position = pos
-      zidan.parent = this.node
-    }
-
-    stopLaunch() {
-      console.log('停止发射')
-      this.unschedule(this.launchZidan);
     }
 
     collectCoin(e) {
@@ -125,19 +134,6 @@ export default class NewClass extends cc.Component {
         this.zidanPool.put(zidan)
       }
       window.zidanPool = this.zidanPool
-    }
-
-    onBeginContact(contact, self, other) {
-      console.log('碰撞了')
-      console.log(self, other)
-
-      // let rigidBody = self.node.getComponent(cc.RigidBody)
-      // if (this.originVY) {
-      //   rigidBody.linearVelocity = cc.v2(0, this.originVY)
-      // } else {
-      //   this.originVY = rigidBody.linearVelocity.y
-      // }
-
     }
 
     update (dt) {

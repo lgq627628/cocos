@@ -23,6 +23,18 @@ export default class NewClass extends cc.Component {
     defaultZidanNum: number = 2
 
     onLoad () {
+      wx.login({
+        timeout:10000,
+        success: (result) => {
+          console.log('成功了', result)
+        },
+        fail: e => {
+          console.log('失败了', e)
+        },
+        complete: e => {
+          console.log('完成了', e)
+        }
+      });
       this.createCoinPool()
       this.createZidanPool()
       this.coinNode.on(cc.Node.EventType.MOUSE_DOWN, this.collectCoin.bind(this), this)

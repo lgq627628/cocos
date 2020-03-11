@@ -1,12 +1,16 @@
 {
-  "title": "puzzle",
+  "title": "plane",
   "packageName": "",
-  "startScene": "13bb8efa-aa6f-40ab-a358-5afa6b899d53",
+  "startScene": "1c15e390-a5a9-44ca-8ef0-653764c4f5e8",
   "excludeScenes": [
     "5f803274-6913-455c-9de7-87195eb2cd55",
     "3110a31a-3da7-476e-9e9f-7469c4245edb",
     "aa9d389a-67ef-4437-af37-cd8f973a27ab",
-    "bf7d5f51-1ac1-46d0-9e95-85e391929585"
+    "bf7d5f51-1ac1-46d0-9e95-85e391929585",
+    "e4b1ad1e-2c78-4dfb-9f36-52af1fb359b1",
+    "95d65c51-82e4-47f3-b7cb-06585107ae2f",
+    "e2a147c9-8132-42fc-a7d6-349c24d3ab4b",
+    "13bb8efa-aa6f-40ab-a358-5afa6b899d53"
   ],
   "includeSDKBox": false,
   "orientation": {

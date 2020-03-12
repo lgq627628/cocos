@@ -57,4 +57,17 @@ Wechat.onRightUpShare = function() {
   })
 }
 
+Wechat.onAddGameData = function(gameData) {
+  wx.cloud.callFunction({
+    name: 'addGameData',
+    data: {
+      gameData
+    },
+    success(res) {
+      console.log('保存游戏成功', res)
+    },
+    fail: console.error
+  })
+}
+
 export {G, Wechat}

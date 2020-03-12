@@ -349,4 +349,14 @@ export default class Paopaolong extends cc.Component {
       this.nowBubble.x += dx
       this.nowBubble.y += dy
     }
+
+    onSaveGameData() {
+      let time = ~~(+new Date() / 1000)
+      let gameData = {
+        level: ~~(Math.random() * 5) + 1,
+        coin: 1000,
+        due: time
+      }
+      Wechat.onAddGameData(gameData)
+    }
 }

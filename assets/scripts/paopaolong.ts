@@ -1,9 +1,14 @@
 import Util from './common/Util'
+import {G, Wechat} from './common/Global'
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class Paopaolong extends cc.Component {
 
+    @property(cc.Node)
+    avatarNode: cc.Node = null
+    @property(cc.Label)
+    nickName: cc.Label = null
     @property(cc.Node)
     bubbleLayer: cc.Node = null
     @property(cc.Prefab)
@@ -23,10 +28,77 @@ export default class Paopaolong extends cc.Component {
     shootSpeed: number = 2500
 
     onLoad () {
+      this.initWexin()
       this.shooterPos = this.shooter.position
       this.initLevel(this.nowLevel)
       this.openTouch()
       this.createRandomBubble()
+    }
+
+    initWexin() {
+      wx.login({
+        timeout:10000,
+        success: (result) => {
+          console.log('成功了', result)
+        },
+        fail: e => {
+          console.log('失败了', e)
+        },
+        complete: e => {
+          console.log('完成了', e)
+        }
+      });
+      let button = wx.createUserInfoButton({
+        type: 'text',
+        text: '开始游戏',
+        style: {
+          left: wx.getSystemInfoSync().screenWidth / 2 - 100,
+          top: wx.getSystemInfoSync().screenHeight / 2 - 20,
+          width: 200,
+          height: 40,
+          lineHeight: 40,
+          backgroundColor: '#fb94a9',
+          color: '#ffffff',
+          textAlign: 'center',
+          fontSize: 16,
+          borderRadius: 10
+        }
+      })
+      button.show()
+      button.onTap((res) => {
+        console.log(res)
+        if (res.errMsg === 'getUserInfo:ok') {
+          console.log('获取用户信息成功')
+          // todo 注册用户信息
+          Wechat.onRegisterUser(res.userInfo, this.initUser.bind(this))
+          Wechat.onRightUpShare()
+          button.destroy()
+        } else {
+          console.log('获取用户信息失败')
+        }
+      })
+    }
+
+    initUser() {
+      console.log('G.userInfo', G.userInfo)
+      if (!G.userInfo) return
+      console.log('执行了啦啦啦啦初始化用户信息')
+      let url = G.userInfo.avatarUrl
+      cc.loader.load({
+        url,
+        type: 'jpg'
+      }, (err, texture) => {
+        let frame = new cc.SpriteFrame(texture)
+        if (err) {
+          console.log('用户头像', err)
+        }
+        this.avatarNode.getComponent(cc.Sprite).spriteFrame = frame
+      })
+      this.nickName.getComponent(cc.Label).string = G.userInfo.nickName
+    }
+
+    onShare() {
+      Wechat.onShare()
     }
 
     reset() {

@@ -1,0 +1,14 @@
+{
+  "name": "gen_ui",
+  "version": "1.0.0",
+  "description": "UI gen",
+  "author": "Blake",
+  "main": "main.js",
+  "main-menu": {
+	"lgq的专属插件/生成 UI_CTRL 代码模板" : {
+	  "message": "gen_ui:gen"
+	}
+  },
+  "name": "gen_ui",
+  "scene-script": "gen_ui.js"
+}

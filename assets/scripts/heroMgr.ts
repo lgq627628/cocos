@@ -8,6 +8,7 @@ export default class NewClass extends cc.Component {
     heroAnims: cc.Animation = null
     state: string = ''
     dir: cc.Vec2 = null
+    linearV: cc.Vec2 = null
 
     onLoad () {
         cc.systemEvent.on('keydown', this.onKeyDown, this)
@@ -47,13 +48,21 @@ export default class NewClass extends cc.Component {
             this.dir.y = 0
         }
 
-        if (this.dir.x) {
-            this.node.x += this.dir.x * this.speed * dt
-        } else if (this.dir.y) {
-            this.node.y += this.dir.y * this.speed * dt
-        } else {
 
+        this.linearV = this.node.getComponent(cc.RigidBody).linearVelocity
+
+        if (this.dir.x) {
+          this.linearV.x = this.dir.x * this.speed
+          this.linearV.y = 0
+        } else if (this.dir.y) {
+          this.linearV.x = 0
+          this.linearV.y = this.dir.y * this.speed
+        } else {
+          this.linearV.x = 0
+          this.linearV.y = 0
         }
+
+        this.node.getComponent(cc.RigidBody).linearVelocity = this.linearV
 
         let state = ''
         if (this.dir.x === -1) {

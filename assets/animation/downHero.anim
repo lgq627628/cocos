@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "downHero",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "9abcdb3c-d654-4274-9727-ac48397f952e"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "9a4f2ec1-19fd-4cbb-8403-6277c07abb23"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "788ae9e6-ec59-4d29-b277-fc8a89546fbd"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "e7357124-82ca-4284-8129-49c9e59f2a29"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "60d53513-6eef-4cde-b46b-814cd41afee5"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

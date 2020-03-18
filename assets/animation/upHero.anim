@@ -1,0 +1,55 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "upHero",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "cda711a4-e1b5-48da-ad31-40c113335a6d"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "417afd71-3dda-4295-b11d-a79378bf5b07"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "4156680f-6144-4012-b49e-2d0178bfd6ac"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "928a94ce-db1e-4020-9e82-70d502a912d5"
+            }
+          },
+          {
+            "frame": 0.4,
+            "value": {
+              "__uuid__": "d892e0e2-964a-4130-8b72-1b6d8d60c6db"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "58d9cc3a-1005-4181-ae93-c3309878c78d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

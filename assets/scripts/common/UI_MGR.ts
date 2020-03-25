@@ -1,9 +1,11 @@
 export const UI_MGR = {
   addBtnEvent(node, fn, caller) {
     let btn = node.getComponent(cc.Button)
-    if (btn) {
-      node.on('click', fn, caller)
-    }
+    if (!btn) node.addComponent(cc.Button)
+    node.on('click', fn, caller)
+    // if (btn) {
+    //   node.on('click', fn, caller)
+    // }
   },
   showUIAt(parent, uiName) {
     cc.loader.loadRes(`uiPrefab/${uiName}`, function(err, prefab) {
@@ -13,3 +15,5 @@ export const UI_MGR = {
     })
   }
 }
+
+window.UI_MGR = UI_MGR

@@ -1,0 +1,93 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "path",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.3333333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "road": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -301,
+                15
+              ],
+              "motionPath": [
+                [
+                  -6,
+                  -158,
+                  -72,
+                  -115,
+                  41,
+                  -188
+                ],
+                [
+                  250,
+                  85,
+                  178,
+                  94,
+                  333,
+                  74
+                ]
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                349,
+                -226
+              ],
+              "motionPath": []
+            }
+          ]
+        }
+      },
+      "road2": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -376,
+                214
+              ],
+              "motionPath": [
+                [
+                  -82,
+                  -1,
+                  -187,
+                  -27,
+                  3,
+                  21
+                ],
+                [
+                  42,
+                  241,
+                  -31,
+                  199,
+                  135,
+                  293
+                ]
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                382,
+                60
+              ],
+              "motionPath": []
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

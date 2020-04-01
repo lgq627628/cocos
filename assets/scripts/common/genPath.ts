@@ -69,20 +69,20 @@ export default class GenPath extends cc.Component {
         for (var i = 0; i < road_data.length; i++) {
             var key_frame = road_data[i];
             if (ctrl1 !== null) {
-                road_curve_path.push([start_point, ctrl1, ctrl1, cc.p(key_frame.value[0], key_frame.value[1])]);
+                road_curve_path.push([start_point, ctrl1, ctrl1, cc.v2(key_frame.value[0], key_frame.value[1])]);
             }
 
-            start_point = cc.p(key_frame.value[0], key_frame.value[1]);
+            start_point = cc.v2(key_frame.value[0], key_frame.value[1]);
 
             for (var j = 0; j < key_frame.motionPath.length; j++) {
-                end_point = cc.p(key_frame.motionPath[j][0], key_frame.motionPath[j][1]);
-                ctrl2 = cc.p(key_frame.motionPath[j][2], key_frame.motionPath[j][3]);
+                end_point = cc.v2(key_frame.motionPath[j][0], key_frame.motionPath[j][1]);
+                ctrl2 = cc.v2(key_frame.motionPath[j][2], key_frame.motionPath[j][3]);
                 if (ctrl1 === null) {
                     ctrl1 = ctrl2;
                 }
                 // 贝塞尔曲线 start_point, ctrl1, ctrl2, end_point,
                 road_curve_path.push([start_point, ctrl1, ctrl2, end_point]);
-                ctrl1 = cc.p(key_frame.motionPath[j][4], key_frame.motionPath[j][5]);
+                ctrl1 = cc.v2(key_frame.motionPath[j][4], key_frame.motionPath[j][5]);
                 start_point = end_point;
             }
         }
@@ -107,7 +107,7 @@ export default class GenPath extends cc.Component {
             for (var i = 0; i < count; i++) {
                 var x = start_point.x * (1 - t) * (1 - t) * (1 - t) + 3 * ctrl1.x * t * (1 - t) * (1 - t) + 3 * ctrl2.x * t * t * (1 - t) + end_point.x * t * t * t;
                 var y = start_point.y * (1 - t) * (1 - t) * (1 - t) + 3 * ctrl1.y * t * (1 - t) * (1 - t) + 3 * ctrl2.y * t * t * (1 - t) + end_point.y * t * t * t;
-                one_road.push(cc.p(x, y));
+                one_road.push(cc.v2(x, y));
                 t += t_delta;
             }
         }
@@ -121,7 +121,7 @@ export default class GenPath extends cc.Component {
                 this.new_draw_node.lineTo(one_road[i].x + 1, one_road[i].y + 1);
                 this.new_draw_node.stroke();
                 // this.draw_node.drawSegment(one_road[i],
-                //     cc.p(one_road[i].x + 1, one_road[i].y + 1),
+                //     cc.v2(one_road[i].x + 1, one_road[i].y + 1),
                 //     1, cc.color(255, 0, 0, 255));
             }
         }
@@ -137,7 +137,7 @@ export default class GenPath extends cc.Component {
       for (var i = 0; i < 20; i++) {
           var x = start_point.x * (1 - t) * (1 - t) * (1 - t) + 3 * ctrl1.x * t * (1 - t) * (1 - t) + 3 * ctrl2.x * t * t * (1 - t) + end_point.x * t * t * t;
           var y = start_point.y * (1 - t) * (1 - t) * (1 - t) + 3 * ctrl1.y * t * (1 - t) * (1 - t) + 3 * ctrl2.y * t * t * (1 - t) + end_point.y * t * t * t;
-          var now_point = cc.p(x, y);
+          var now_point = cc.v2(x, y);
           var dir = now_point.sub(prev_point);
           prev_point = now_point;
           length += dir.mag();

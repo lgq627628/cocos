@@ -13,7 +13,6 @@ export default class NewClass extends cc.Component {
     start () {
       this.roadData = this.bg.getComponent('genPath').get_road_set()[1]
       this.walk()
-      console.log('sss', this.roadData)
     }
 
     walk() {

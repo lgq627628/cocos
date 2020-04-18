@@ -1,7 +1,7 @@
 {
-  "title": "rank",
+  "title": "hh",
   "packageName": "",
-  "startScene": "efda8709-f591-410f-a2ab-4a18dfcdf6bd",
+  "startScene": "3191ea60-62c9-4a30-abc3-8c7ed9b69b80",
   "excludeScenes": [
     "5f803274-6913-455c-9de7-87195eb2cd55",
     "3110a31a-3da7-476e-9e9f-7469c4245edb",
@@ -12,7 +12,14 @@
     "e2a147c9-8132-42fc-a7d6-349c24d3ab4b",
     "13bb8efa-aa6f-40ab-a358-5afa6b899d53",
     "1c15e390-a5a9-44ca-8ef0-653764c4f5e8",
-    "acb04b17-e269-4644-8536-f3bf02d53bfa"
+    "acb04b17-e269-4644-8536-f3bf02d53bfa",
+    "f7287229-2f35-4799-b832-835a196c7873",
+    "b2d149f9-6fef-49e6-8738-e50153fb4d9a",
+    "9e9ff35d-9e7a-4c8c-aacb-4d1b8b9d1e65",
+    "efda8709-f591-410f-a2ab-4a18dfcdf6bd",
+    "e3648dda-94c4-4100-a12e-4f7d87b655a1",
+    "d6c307d7-de10-4d14-bff9-640b373c1c51",
+    "967e46eb-b9ca-4124-98e8-64f4bbe1ceea"
   ],
   "includeSDKBox": false,
   "orientation": {

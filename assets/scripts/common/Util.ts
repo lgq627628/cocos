@@ -7,4 +7,9 @@ export default class Util {
   static random(min: number, max: number): number {
     return Math.floor(Math.random() * Math.abs(max - min + 1)) + min
   }
+
+  static changeSpriteFrame(sprtie: cc.Sprite, frames: cc.SpriteFrame[], percent: number): cc.SpriteFrame {
+    sprtie.spriteFrame = frames[Math.floor(frames.length * percent)]
+    return sprtie.spriteFrame
+  }
 }

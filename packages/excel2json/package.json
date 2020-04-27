@@ -1,0 +1,19 @@
+{
+  "name": "excel2json",
+  "version": "1.0.0",
+  "description": "一个把 excel 文件转成 json 配置文件的简单扩展包",
+  "main": "main.js",
+  "main-menu": {
+    "Packages/excel2json": {
+      "message": "excel2json:genJson"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xlsx": "^0.15.6"
+  }
+}

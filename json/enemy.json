@@ -1,0 +1,79 @@
+[
+  {
+    "id": "编号",
+    "type": "类型",
+    "level": "等级",
+    "speed": "速度",
+    "hp": "生命值"
+  },
+  {
+    "id": 1,
+    "type": "enemy1",
+    "level": 1,
+    "speed": 10,
+    "hp": 2
+  },
+  {
+    "id": 2,
+    "type": "enemy2",
+    "level": 2,
+    "speed": 20,
+    "hp": 4
+  },
+  {
+    "id": 3,
+    "type": "enemy3",
+    "level": 3,
+    "speed": 30,
+    "hp": 6
+  },
+  {
+    "id": 4,
+    "type": "enemy4",
+    "level": 4,
+    "speed": 40,
+    "hp": 8
+  },
+  {
+    "id": 5,
+    "type": "enemy5",
+    "level": 5,
+    "speed": 50,
+    "hp": 10
+  },
+  {
+    "id": 6,
+    "type": "enemy6",
+    "level": 6,
+    "speed": 60,
+    "hp": 12
+  },
+  {
+    "id": 7,
+    "type": "enemy7",
+    "level": 7,
+    "speed": 70,
+    "hp": 14
+  },
+  {
+    "id": 8,
+    "type": "enemy8",
+    "level": 8,
+    "speed": 80,
+    "hp": 16
+  },
+  {
+    "id": 9,
+    "type": "enemy9",
+    "level": 9,
+    "speed": 90,
+    "hp": 18
+  },
+  {
+    "id": 10,
+    "type": "enemy10",
+    "level": 10,
+    "speed": 100,
+    "hp": 20
+  }
+]

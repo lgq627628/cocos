@@ -8,6 +8,10 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     gridPrefab: cc.Prefab = null;
+    @property(cc.Node)
+    xx: cc.Node = null;
+
+    hh: any = null
 
     GRID_NUM_X: number = 8
     GRID_NUM_Y: number = 8
@@ -25,9 +29,30 @@ export default class NewClass extends cc.Component {
     onLoad () {
       this.createGridPanel()
       this.addTouchEvent()
+      this.playRotate()
+    }
+
+    playRotate() {
+      if (this.hh) {
+        this.hh.start()
+        return
+      }
+      let hh = cc.tween(this.xx)
+        .by(3, { angle: this.xx.angle + 360 })
+        .repeatForever()
+        .start()
+      this.hh = hh
+      console.log(hh)
+    }
+
+    stopRotate() {
+      this.hh.stop()
+      // this.xx.stopAllActions()
+      // console.log(this.xx)
     }
 
     restart() {
+      this.stopRotate()
       this.startGrid = null
       this.endGrid = null
       this.gridNodeArr.forEach(arr => {
@@ -51,7 +76,7 @@ export default class NewClass extends cc.Component {
           let gridData = new GridData()
           gridData.i = i
           gridData.j = j
-          gridData.type = Math.random() < 0.2 ? GridType.Wall : GridType.Normal
+          gridData.type = Math.random() < 0.3 ? GridType.Wall : GridType.Normal
           grid.setColor(gridData.type)
           this.gridDataArr[i][j] = gridData
           this.gridNodeArr[i][j] = grid
@@ -85,6 +110,12 @@ export default class NewClass extends cc.Component {
     findPath(nowGrid: GridData) {
       if (nowGrid === this.endGrid) return
       let roundGridArr = this.findRoundGrid(nowGrid)
+
+      // this.sortGrid(roundGridArr)
+      // for(let i = 0; i < roundGridArr.length; i++) {
+      //   let grid = roundGridArr[i]
+      // }
+
       let bestGrid = this.findBestGrid(roundGridArr)
       if (!bestGrid) return
       bestGrid.isVisited = true
@@ -143,6 +174,20 @@ export default class NewClass extends cc.Component {
         return (disOne + disOne2) > (disTwo + disTwo2) ? 1 : -1
       })
       return roundGridArr[0]
+    }
+
+    sortGrid(roundGridArr: GridData[]) {
+      let {i, j} = this.endGrid
+      roundGridArr.sort((gridOne, gridTwo) => {
+        let disOne = this.calcDistance(gridOne, this.endGrid)
+        let disTwo = this.calcDistance(gridTwo, this.endGrid)
+        // let disOne2 = this.calcDistance(gridOne, this.startGrid)
+        // let disTwo2 = this.calcDistance(gridTwo, this.startGrid)
+        let disOne2 = 0
+        let disTwo2 = 0
+        return (disOne + disOne2) > (disTwo + disTwo2) ? 1 : -1
+      })
+      return roundGridArr
     }
 
     calcDistance(pos1: GridData, pos2: GridData) {
